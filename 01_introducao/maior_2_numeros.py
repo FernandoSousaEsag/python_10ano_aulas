@@ -1,3 +1,7 @@
+
+import os
+os.system("cls")  # limpar o ecrã do terminal (funciona no Windows)
+
 num1 = int(input("Introduza o primeiro número: "))
 num2 = int(input("Introduza o segundo número: "))
 
