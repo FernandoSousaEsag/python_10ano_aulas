@@ -1,0 +1,18 @@
+import os
+os.system("cls")  # limpar o ecrã
+valor = float(input("Introduza o valor da compra: "))
+
+if valor < 50:
+    percentagem = 0
+elif valor <= 100:
+    percentagem = 5
+else:
+    percentagem = 10
+
+desconto = valor * percentagem / 100
+preco_final = valor - desconto
+
+print(f"Valor da compra: {valor:.2f} €")
+print(f"Desconto aplicado: {percentagem}%")
+print(f"Valor do desconto: {desconto:.2f} €")
+print(f"Preço final: {preco_final:.2f} €")
