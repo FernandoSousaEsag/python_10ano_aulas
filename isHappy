@@ -1,5 +1,0 @@
-isHappy = True
-if isHappy:
-    print("I am happy!")
-else:
-    print("I am not happy.")
