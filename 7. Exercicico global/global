@@ -1,8 +1,9 @@
 import os
 os.system("cls")  # limpar o ecrã
+
 def calcular_media(notas):
     # Calcula a média das classificações recebidas.
-    return sum(notas) / len(notas)
+    return sum(notas) / len(notas) #len(notas) significa quantos elementos existem na lista notas
 
 
 def contar_positivas(notas):
