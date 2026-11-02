@@ -1,0 +1,14 @@
+import os
+os.system("cls")  # limpar o ecrã
+
+def calcular_retangulo(comprimento, largura):
+    area = comprimento * largura
+    perimetro = 2 * (comprimento + largura)
+    return area, perimetro
+
+# Programa principal
+comprimento = float(input("Introduza o comprimento: "))
+largura = float(input("Introduza a largura: "))
+area, perimetro = calcular_retangulo(comprimento, largura)
+print(f"Área: {area}")
+print(f"Perímetro: {perimetro}")

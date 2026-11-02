@@ -1,6 +1,6 @@
+
 import os
 os.system("cls")  # limpar o ecrã
-
 # Ler 4 números e calcular a média
 soma=0
 for i in range(1,5):
