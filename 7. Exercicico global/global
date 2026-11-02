@@ -1,0 +1,94 @@
+import os
+os.system("cls")  # limpar o ecrã
+def calcular_media(notas):
+    # Calcula a média das classificações recebidas.
+    return sum(notas) / len(notas)
+
+
+def contar_positivas(notas):
+    # Conta as classificações positivas (iguais ou superiores a 10).
+    contador = 0
+
+    for nota in notas:
+        if nota >= 10:
+            contador = contador + 1
+
+    return contador
+
+
+def contar_bons(notas):
+    # Conta as classificações entre 14 (inclusive) e 18 (exclusive).
+    contador = 0
+
+    for nota in notas:
+        if nota >= 14 and nota < 18:
+            contador = contador + 1
+
+    return contador
+
+
+def contar_excelentes(notas):
+    # Conta as classificações excelentes, iguais ou superiores a 18.
+    contador = 0
+
+    for nota in notas:
+        if nota >= 18:
+            contador = contador + 1
+
+    return contador
+
+
+def contar_acima_media(notas, media):
+    # Conta as classificações superiores à média da turma.
+    contador = 0
+
+    for nota in notas:
+        if nota > media:
+            contador = contador + 1
+
+    return contador
+
+
+def mostrar_relatorio(notas, media, positivas, bons, excelentes, acima_media):
+    # As negativas são todas as classificações abaixo de 10.
+    negativas = len(notas) - positivas  # len(notas) conta quantas classificações há na lista.
+
+    # Apresenta os resultados calculados de forma organizada.
+    print("\n--- Relatório da turma ---")
+    print(f"Classificações: {notas}")
+    print(f"Média da turma: {media:.2f}")
+    print(f"Maior classificação: {max(notas)}")
+    print(f"Menor classificação: {min(notas)}")
+    print(f"Número de positivas: {positivas}")
+    print(f"Número de negativas: {negativas}")
+    print(f"Alunos com Bom: {bons}")
+    print(f"Alunos com Excelente: {excelentes}")
+    print(f"Alunos acima da média: {acima_media}")
+
+
+# Programa principal
+
+# Lista onde serão guardadas as classificações dos 10 alunos.
+notas = []
+
+# Lê e guarda a classificação de cada aluno.
+for i in range(1, 11):
+    nota = float(input(f"Introduza a classificação do aluno {i}: "))
+    notas.append(nota)
+
+# Calcula os indicadores necessários para o relatório.
+media = calcular_media(notas)
+positivas = contar_positivas(notas)
+bons = contar_bons(notas)
+excelentes = contar_excelentes(notas)
+acima_media = contar_acima_media(notas, media)
+
+# Mostra o relatório final da turma.
+mostrar_relatorio(
+    notas,
+    media,
+    positivas,
+    bons,
+    excelentes,
+    acima_media
+)
