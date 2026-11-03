@@ -3,7 +3,9 @@ os.system("cls")  # limpar o ecrã
 
 def calcular_media(notas):
     # Calcula a média das classificações recebidas.
-    return sum(notas) / len(notas) #len(notas) significa quantos elementos existem na lista notas
+    media = sum(notas) / len(notas)  # len(notas) significa quantos elementos existem na lista notas
+
+    return media #len(notas) significa quantos elementos existem na lista notas
 
 
 def contar_positivas(notas):
@@ -22,9 +24,8 @@ def contar_bons(notas):
     contador = 0
 
     for nota in notas:
-        if nota >= 14 and nota < 18:
+        if nota>=14 and nota<=18:
             contador = contador + 1
-
     return contador
 
 
@@ -32,11 +33,16 @@ def contar_excelentes(notas):
     # Conta as classificações excelentes, iguais ou superiores a 18.
     contador = 0
 
+    
     for nota in notas:
         if nota >= 18:
             contador = contador + 1
 
     return contador
+
+
+
+
 
 
 def contar_acima_media(notas, media):
@@ -49,22 +55,6 @@ def contar_acima_media(notas, media):
 
     return contador
 
-
-def mostrar_relatorio(notas, media, positivas, bons, excelentes, acima_media):
-    # As negativas são todas as classificações abaixo de 10.
-    negativas = len(notas) - positivas  # len(notas) conta quantas classificações há na lista.
-
-    # Apresenta os resultados calculados de forma organizada.
-    print("\n--- Relatório da turma ---")
-    print(f"Classificações: {notas}")
-    print(f"Média da turma: {media:.2f}")
-    print(f"Maior classificação: {max(notas)}")
-    print(f"Menor classificação: {min(notas)}")
-    print(f"Número de positivas: {positivas}")
-    print(f"Número de negativas: {negativas}")
-    print(f"Alunos com Bom: {bons}")
-    print(f"Alunos com Excelente: {excelentes}")
-    print(f"Alunos acima da média: {acima_media}")
 
 
 # Programa principal
@@ -84,12 +74,14 @@ bons = contar_bons(notas)
 excelentes = contar_excelentes(notas)
 acima_media = contar_acima_media(notas, media)
 
-# Mostra o relatório final da turma.
-mostrar_relatorio(
-    notas,
-    media,
-    positivas,
-    bons,
-    excelentes,
-    acima_media
-)
+print("\n--- Relatório da turma ---")
+print(f"Classificações: {notas}")
+print(f"Média da turma: {media:.2f}")
+print(f"Maior classificação: {max(notas)}")
+print(f"Menor classificação: {min(notas)}") 
+print(f"Número de positivas: {positivas}")
+print(f"Número de negativas: {len(notas) - positivas}")
+print(f"Alunos com Bom: {bons}")
+print(f"Alunos com Excelente: {excelentes}")
+print(f"Alunos acima da média: {acima_media}")
+
