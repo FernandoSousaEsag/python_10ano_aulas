@@ -4,25 +4,21 @@ os.system("cls")  # limpar o ecrã
 def calcular_media(notas):
     # Calcula a média das classificações recebidas.
     media = sum(notas) / len(notas)  # len(notas) significa quantos elementos existem na lista notas
-
     return media #len(notas) significa quantos elementos existem na lista notas
 
 
 def contar_positivas(notas):
     # Conta as classificações positivas (iguais ou superiores a 10).
     contador = 0
-
     for nota in notas:
         if nota >= 10:
             contador = contador + 1
-
     return contador
 
 
 def contar_bons(notas):
     # Conta as classificações entre 14 (inclusive) e 18 (exclusive).
     contador = 0
-
     for nota in notas:
         if nota>=14 and nota<=18:
             contador = contador + 1
@@ -32,27 +28,19 @@ def contar_bons(notas):
 def contar_excelentes(notas):
     # Conta as classificações excelentes, iguais ou superiores a 18.
     contador = 0
-
-    
     for nota in notas:
         if nota >= 18:
             contador = contador + 1
-
     return contador
-
-
-
 
 
 
 def contar_acima_media(notas, media):
     # Conta as classificações superiores à média da turma.
     contador = 0
-
     for nota in notas:
         if nota > media:
             contador = contador + 1
-
     return contador
 
 
@@ -74,6 +62,7 @@ bons = contar_bons(notas)
 excelentes = contar_excelentes(notas)
 acima_media = contar_acima_media(notas, media)
 
+# Mostra no ecrã o relatório da turma.
 print("\n--- Relatório da turma ---")
 print(f"Classificações: {notas}")
 print(f"Média da turma: {media:.2f}")
