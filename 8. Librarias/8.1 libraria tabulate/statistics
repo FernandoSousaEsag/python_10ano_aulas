@@ -1,0 +1,7 @@
+import statistics
+
+notas = [12, 15, 8, 17, 14]
+
+media = statistics.mean(notas)
+
+print(f"Média: {media:.2f}")

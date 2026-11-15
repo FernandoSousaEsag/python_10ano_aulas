@@ -1,0 +1,15 @@
+import os
+os.system("cls")  # limpar o ecrã
+
+from tabulate import tabulate
+
+dados = [
+    ["Média", 13.5],
+    ["Maior nota", 18],
+    ["Menor nota", 7],
+    ["Positivas", 8],
+    ["Bom", 3],
+    ["Excelente", 2]
+]
+
+print(tabulate(dados, headers=["Indicador", "Valor"], tablefmt="grid"))
