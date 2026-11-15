@@ -2,6 +2,8 @@ import random
 import os
 os.system("cls")  # limpar o ecrã
 
+# Neste exercício, vamos gerar aleatoriamente as classificações de 10 alunos e calcular alguns indicadores estatísticos.
+
 def calcular_media(notas):
     # Calcula a média das classificações recebidas.
     media = sum(notas) / len(notas)  # len(notas) significa quantos elementos existem na lista notas
