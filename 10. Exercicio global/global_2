@@ -1,0 +1,143 @@
+import random
+import math
+
+# Neste exercício, vamos gerar aleatoriamente as classificações de 10 alunos e calcular alguns indicadores estatísticos.
+
+def calcular_media(notas):
+    # Calcula a média das classificações recebidas.
+    media = sum(notas) / len(notas)  # len(notas) significa quantos elementos existem na lista notas
+    return media #len(notas) significa quantos elementos existem na lista notas
+
+
+def contar_positivas(notas):
+    # Conta as classificações positivas (iguais ou superiores a 10).
+    contador = 0
+    for nota in notas:
+        if nota >= 10:
+            contador = contador + 1
+    return contador
+
+
+def contar_bons(notas):
+    # Conta as classificações entre 14 (inclusive) e 18 (exclusive).
+    contador = 0
+    for nota in notas:
+        if nota >= 14 and nota < 18:
+            contador = contador + 1
+    return contador
+
+
+def contar_excelentes(notas):
+    # Conta as classificações excelentes, iguais ou superiores a 18.
+    contador = 0
+    for nota in notas:
+        if nota >= 18:
+            contador = contador + 1
+    return contador
+
+
+
+def contar_acima_media(notas, media):
+    # Conta as classificações superiores à média da turma.
+    contador = 0
+    for nota in notas:
+        if nota > media:
+            contador = contador + 1
+    return contador
+
+
+
+# Funções de matemática
+
+def area_circulo(raio):
+    return math.pi * math.pow(raio, 2)
+
+
+def perimetro_circulo(raio):
+    return 2 * math.pi * raio
+
+
+def apresentar_classificacoes(notas):
+    # Calcula os indicadores da turma usando as funções anteriores.
+    media = calcular_media(notas)
+    positivas = contar_positivas(notas)
+    bons = contar_bons(notas)
+    excelentes = contar_excelentes(notas)
+    acima_media = contar_acima_media(notas, media)
+
+    print("\n--- Relatório da turma ---")
+    print(f"Classificações: {notas}")
+    print(f"Média da turma: {media:.2f}")
+    print("Número de positivas:", positivas)
+    print("Número de negativas:", len(notas) - positivas)
+    print("Maior classificação:", max(notas))
+    print("Menor classificação:", min(notas))
+    print(f"Alunos com Bom: {bons}")
+    print(f"Alunos com Excelente: {excelentes}")
+    print(f"Alunos acima da média: {acima_media}")
+
+
+def executar_matematica():
+    print("\n----- MATEMÁTICA -----")
+    print("1 - Área de um círculo")
+    print("2 - Perímetro de um círculo")
+    print("3 - Raiz quadrada")
+    print("4 - Potência")
+    opcao = input("Escolha uma opção: ")
+
+    if opcao == "1":
+        raio = float(input("Raio em centímetros: "))
+        if raio >= 0:
+            print(f"Área: {area_circulo(raio):.2f} cm²")
+        else:
+            print("O raio não pode ser negativo.")
+    elif opcao == "2":
+        raio = float(input("Raio em centímetros: "))
+        if raio >= 0:
+            print(f"Perímetro: {perimetro_circulo(raio):.2f} cm")
+        else:
+            print("O raio não pode ser negativo.")
+    elif opcao == "3":
+        numero = float(input("Número: "))
+        if numero >= 0:
+            print("Raiz quadrada:", math.sqrt(numero))
+        else:
+            print("O número não pode ser negativo.")
+    elif opcao == "4":
+        base = float(input("Base: "))
+        expoente = float(input("Expoente: "))
+        if base < 0 and expoente != int(expoente):
+            print("Uma base negativa precisa de um expoente inteiro.")
+        elif base == 0 and expoente < 0:
+            print("Zero não pode ter um expoente negativo.")
+        else:
+            print("Potência:", math.pow(base, expoente))
+    else:
+        print("Opção inválida.")
+
+    input("\nPrima Enter para voltar ao menu principal...")
+
+
+# Menu principal
+# As classificações são geradas uma vez e mantidas durante o programa.
+notas = []
+for i in range(1, 11):
+    nota = random.randint(1, 20)
+    notas.append(nota)
+
+opcao = ""
+while opcao != "0":
+    print("\n========== MENU PRINCIPAL ==========")
+    print("1 - Classificações")
+    print("2 - Matemática")
+    print("0 - Sair")
+    opcao = input("Escolha uma opção: ")
+
+    if opcao == "1":
+        apresentar_classificacoes(notas)
+    elif opcao == "2":
+        executar_matematica()
+    elif opcao == "0":
+        print("Até à próxima!")
+    else:
+        print("Opção inválida.")
